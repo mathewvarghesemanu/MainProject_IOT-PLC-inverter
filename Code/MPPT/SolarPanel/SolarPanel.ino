@@ -1,10 +1,4 @@
 
-/*
- * Inductance Meter Shield for Arduino Uno
- * Lukas Fässler, 2015-02-11
- * See www.soldernerd.com for description, schematics, Eagle files, photos and more
- */
- 
 //Define ports
 #define BUCK_ENABLE 7 
 #define BUCK_PWM 6
@@ -192,16 +186,12 @@ void buck_update()
   }
 }
 
-//This function is called at startup
-//No, nothing in this code ever calls it 
-//This is Arduino-specific behaviour
 void setup()
 {
   //Show startup screen
-  //I can't resist bragging ;-)
   lcd.begin(16, 2);
   lcd.setCursor(0, 0);
-  lcd.print(" Phoenix ");
+  lcd.print(" Mathew & Ameer ");
   lcd.setCursor(0, 1);
   lcd.print(" ECE Dept ");
   
@@ -214,7 +204,6 @@ void setup()
 
 
 //This function is called forever once setup() has completed
-//Again, this is Arduino-specific behaviour
 void loop()
 {
   for(uint8_t i=0; i<32; ++i)
