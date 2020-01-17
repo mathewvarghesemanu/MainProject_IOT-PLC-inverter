@@ -1,0 +1,708 @@
+\documentclass[12pt,a4paper]{report}
+\date{}
+\usepackage[hmargin={1.15in,1in},vmargin={1in,1.1in},]{geometry}
+%\usepackage[hmargin={1.5in,1.25in},vmargin={1in,1in},]{geometry}
+\usepackage{amsmath,graphicx,makeidx,listings,subfigure,float,setspace}
+\usepackage{fancyhdr}
+\thispagestyle{empty}
+\usepackage{sectsty}
+\usepackage{lipsum}
+%\usepackage[center]{titlesec}
+\usepackage[final]{pdfpages}
+\usepackage{titlesec}
+\renewcommand\listfigurename{\Huge \begin{center} {List of Figures} \end{center} }
+\renewcommand{\contentsname}{ \begin{center} TABLE OF CONTENTS  \end{center}}
+\renewcommand\listtablename{\Large \begin {center}{LIST OF TABLES} \end{center}}
+
+%\renewcommand\thebibliography{THEBIBLIOGRAPHY}
+%---------------------------------FRONT PAGE--------------------------------------------------------------
+
+
+\title{{\bf \Large WEARABLE HEALTH MONITORING SYSTEM  }\\    
+\vspace{0.2cm}
+{\normalsize {A PROJECT REPORT}}\\
+\vspace{0.2cm}
+{\normalsize{ submitted by}}\\
+\vspace{0.20 cm}
+{\normalsize\textbf{GOKULKRISHNA P V}} \\
+\normalsize {Reg. No :\textbf{ MAC15EC059}}\\
+\vspace{0.20 cm}
+{\normalsize\textbf{MEENAKSHI S}} \\
+\normalsize {Reg. No :\textbf{ MAC15EC080}}\\
+\vspace{0.20 cm}
+{\normalsize\textbf{ANNU P SUNNY}} \\
+\normalsize {Reg. No :\textbf{ MAC15EC023}}\\
+\vspace{0.20 cm}
+\normalsize {\textbf{ MOHAMMAD SAHAL T K}}\\
+\normalsize {Reg. No :\textbf{ MAC15EC086}}\\
+\vspace{0.20 cm}
+\normalsize{to}\\ 
+\vspace{0.4cm}
+\normalsize {the APJ Abdul Kalam Technological University}\\
+\normalsize {in partial fulfillment of the requirements for the award of the Degree}\\
+\vspace{0.4cm}
+\normalsize {of}\\
+\vspace{0.4cm}  
+\normalsize {Bachelor of Technology}\\  
+\normalsize {in} \\
+\normalsize {\emph{  Electronics and Communication Engineering} }\\
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.85]{ma}
+\end{figure}
+{\large \textbf {Department of  Electronics and Communication Engineering}}\\
+\vspace{0.4cm}
+\normalsize {Mar Athanasius College of Engineering}\\
+\normalsize {Kothamangalam, Kerala, India 686 666}\\
+\vspace{0.4cm}
+\author \large {MAY 2019}}
+
+
+%----------------------------------TABLE OF CONTENTS DEPTH-----------------------------------------------
+%\setcounter{tocdepth}{1}
+\renewcommand{\bibname}{ REFERENCES}
+%-------declaration----------------------------------------
+
+%CERTIFICATE
+\begin{document}
+%\begin{doublespace}
+\newpage
+\maketitle
+\begin{center}
+{\large \bf{DEPARTMENT OF ELECTRONICS AND COMMUNICATION ENGINEERING}}\\
+{\large \bf{MAR ATHANASIUS COLLEGE OF ENGINEERING}}\\
+{\large \bf{KOTHAMANGALAM}}
+\end{center}
+%\end{doublespace}
+
+\onehalfspacing This is to certify that the report entitled {\large{ \textbf{WEARABLE HEALTH MONITORING SYSTEM  }}} submitted by \textbf{Mr.Gokulkrishna P V, Ms. Meenakshi S, Ms. Annu P Sunny and Mr. Mohammad Sahal T K} to the APJ Abdul Kalam Technological University in partial fulfillment of the requirements for the award of the Degree of Bachelor of Technology in  Electronics \&\ Communication Engineering is a bonafide record of the project work carried out by them under our guidance and supervision. This report in any form has not been submitted to any other University or Institute for any purpose.
+\vspace{0.8in}
+\begin{flushleft}
+%.................................. \hfill {\bf ............................... }\\ 
+{\large{\textbf{Prof.Thomas Mohan}}}\hfill{\large {\textbf{Dr.Mathew K}}}
+\end{flushleft}
+
+\begin{flushleft}
+ %                                  \hfill {\bf ................................. }
+Project guide                               \hfill{Head of the Department}
+\end{flushleft}
+ 
+%--------------------------------------ACKNOWLEDGMENT------------------------------------------------
+\newpage
+\pagenumbering{roman}
+\setcounter{page}{1}
+\begin{verbatim}
+\end{verbatim}
+\begin{center}
+\textbf {\large ACKNOWLEDGEMENT}
+\end{center}
+\vspace{0.4125in}
+\par
+It is a great pleasure to acknowledge all those who have assisted and supported us for successfully completing our project.
+\\
+\par 
+First of all, we thank God Almighty for his blessings as it is only through his grace that we were able to complete our project successfully.
+\\
+\par 
+We are deeply indebted to Dr. Solly George, Principal, Mar Athanasius College of Engineering for her encouragement and support.
+\\
+\par
+We express our deep sense of gratitude to Dr Mathew K, Head of Electronics \&\  Communication Engineering Department.
+\\
+\par
+We also extend our deep sense of gratitude to our Faculty Advisor Dr.Jinsa Kuruvilla, Assistant Professor, Electronics \&\  Communication Engineering Department for her constant support and immense contribution for the success of our project.
+\\
+\par
+We also take this opportunity to extend my sincere thanks to my project guide Prof. Thomas Mohan, Assistant Professor and all the members of the Department of Electronics \&\ Communication Engineering for sharing their valuable comments during the preparation of the project.
+\\
+\par
+We whole - heartedly thank all our classmates, for their valuable suggestions and for the spirit of healthy competition that exists between us.
+\\
+
+
+ 
+ %-----------------------------------------ABSTRACT---------------------------------------------
+ 
+\newpage
+\begin{verbatim}
+\end{verbatim}
+\begin{center}
+{\bf{ABSTRACT}}
+\addcontentsline{toc}{chapter}{Abstract}
+\end{center}
+\vspace{30pt}
+\begin{doublespace}
+\hspace*{1cm}                        Cardiovascular disease is the world's leading killer, accounting for 16.7 million or 29.2 percent of total global deaths. Heart disease continues to be the leading cause of mortality in day today life in an era of industrialization, changing lifestyles and dietary habits. The mortality rate reported in government hospitals shows an increase in death due to heart diseases and this trend is expected to continue into the next decades. Since cardiac disorders are increasingly affecting human lifestyle and rehabilitation, some practical devices based on modern technological explosions are inevitable and created to reduce the disability from heart diseases.Here we are trying to implement a portable monitoring system with wireless transmission in which the acquired ECG signals are processed in a controlling unit(node unit) to detect for abnormalities. If there is any abnormality, an alarming notification is sent to the physician’s mobile. The system will have the required database of the patients stored in the memory of Arduino micro-controller. This solution not only gives patient more freedom, but also provides early diagnosis of cardiac diseases. Our work also presents a system for a simultaneous non-invasive estimate of  the systolic (SBP) and diastolic (DBP) blood pressure using photoplethysmography (PPG).  The method is independent of the person whose values are being measured and does not need calibration over time or subjects.
+
+
+
+\end{doublespace}
+
+
+%-----------------------------TABLE OF CONTENTS-----------------------------------------------------------
+\newpage
+{
+%\includepdf[pages={1}]{contents}
+}
+\tableofcontents
+%\listoftables
+\addtocontents{lot}{ \hspace{0.4cm} Table No. \hspace{1in} Title \hfill{Page No.}\par}
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\addtocontents{lof}{ \hspace{0.4cm} Figure No. \hspace{1in} Title \hfill{Page No.}\par}
+
+%----------------------HEADER AND  FOOTER-----------------------------------------------------------------
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\pagestyle{fancy}
+\lhead{\emph{WEARABLE HEALTH MONITORING SYSTEM  }}
+\chead{}
+\rhead{}
+\lfoot{\emph{B.Tech, ECE, MACE, Kothamangalam}}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\chaptername}{ {CHAPTER}}
+%\renewcommand{\cftchapfont}{16pt}
+\chapterfont{\centering}
+\renewcommand\bibname{REFERENCES}
+%------------INTRODUCTION---------------------------------------------------------------------------------
+\titleformat{\chapter}[display]{ \filcenter \Large \bfseries}{\chaptertitlename\ \thechapter}{5pt}{\Large}
+\titleformat*{\section}{\large\bfseries}
+
+\chapter{ INTRODUCTION}
+
+\hspace*{1cm}
+The proposed device is a ‘Wearable Health Monitoring Device‘ which monitors the Electrocardiogram and blood pressure of peoplw .  We use the commercial ECG three electrode  leads to detect  the ECG of user as well as the measured systolic and diastolic pressure of the patient  and sends the data to mobile via GSM module.If there is  any deviation from the normal value (the patient suffers from any heart disease    and requires immediate medical help), an alert message is sent to Doctor  via GSM module   with the required data.\\\\
+\hspace*{1cm} 
+ The Proposed self operating device helps patients to monitor their health daily and omits the need for unwanted travel to nearby hospitals. A regular checkup and sending of data to concerned doctors helps in maintaining their health(Proactive decision making for doctors).\\\
+ \\\\\hspace*{1cm}
+  Data analysis can be done for regional traits among a large population.As the device uses Mobile phone and Message Delivery System, it is user friendly and cheap, compared to other similar systems. 
+  
+  	Increases life expectancy and upscales the health of users .\\\
+  
+ 
+ 
+
+
+\section{ Objective}
+
+
+\hspace*{1cm}
+To develop a device that monitors Electrocardiogram and Blood pressure.
+The proposed device is a ‘Wearable Health Monitoring Device ‘which monitors the Electrocardiogram and blood pressure. The Pulse Monitor detects the ECG of user and sends the data to mobile via GSM
+module.
+Blood pressure is being calculated and it is also send via GSM to the mobile phone display. If there are any deviation from the required value (the patient suffers from any heart disease and requires immediate medical help) , an alert message is sent to Doctor via gsm module. \\\
+
+\section{ Overview}
+
+Chater 1 presents the introduction regarding UAVs, major objectiives of the project and overview of the project work.
+\\\\
+Chapter 2  shows the literature review of the selected work.
+\\\\
+Chapter 3  describes the  work done.
+\\\\
+Chapter 4  contains simulation models.
+\\\\
+Chapter 5  shows the algorithms  for different tasks and the hardware implementation .
+\\\\
+Chapter 6  contains the conclusions derived.
+\\\\
+
+
+
+\chapter{ LITERATURE REVIEW}
+
+\hspace*{1cm} Narendra Limbu, Indrajit Ahuja, Harshal Sonar, Sudeep Solanki, Soniya Jain, Hoam Chung, Debraj Chakraborty[1] has explained about the implementation of co-operative outdoor navigation and control of a team of quadcopters, using GPS-based localization. A testbed of quadcopters is indigenously developed using commercial off-the-shelf components.  The experimental  reports suggests that completely decentralised and autonomous outdoor co-operative flights using solely open source components can be achieved.The distributed navigation algorithms are complex. Hence improvements can be made.  \\
+ \\
+ \hspace*{1cm}Dror Epstein and Dan Feldman[2] presented  Quadcopter Tracks Quadcopter via Real-Time Shape Fitting. The problem of shape fitting into a set of points is fundamental in computer vision and image processing, with many applications in robotics. The autonomous vehicle  systems raise the needs of a robust, accurate and very fast algorithms for shape fitting, which is the recognition of known geometric shapes in an image. They have designed a less expensive algorithm which provides open source access that tracks given shapes in real time from a low-quality video stream. This particular algorithm is limited to small number of shapes. Extending to a vast number of shapes is required.
+\\\\\
+\hspace*{1cm}
+According to Sonia Waharte and Niki Trigoni[3], in Supporting Search and Rescue Operations with UAVs, the use of autonomous UAVs to survey the environment and collect evidence about the position of a missing person is discussed. To minimize the time to find the victim, some fundamental parameters need to be accounted for in the design of the search
+algorithms: 1) quality of sensory data collected by the UAVs; 2)
+UAVs energy limitations; 3) environmental hazards (e.g. winds,
+trees); 4) level of information exchange/coordination between
+UAVs. In this paper how these parameters can affect
+the search task is discussed. Potential-based algorithms and partially
+observable Markov decision process to design the control
+strategy of several UAVs have studied. The evaluation criterion was the time
+taken by the UAVs to find the victim.\\\
+
+\hspace*{1cm}
+Anjan Chakrabarty and Robert Morris[4], demonstrated vision-based object tracking for both deformable and rigid targets.It presents an image-based visual servoing system for indoor visual tracking of 3D moving objects
+by an Unmanned Aerial Vehicle. This system autonomously
+follows a 3D moving target object, maintaining it with a fixed
+distance and centered on its image plane. The initial setup
+is tested in a detailed simulation environment. The system is
+then validated on flights in indoor scenarios using the Parrot
+A R.Drone and the Correspondences for Deformable Object
+Tracking(CMT) tracker, demonstrating the robustness
+of the system to differences in object features, environmental
+clutter, and target trajectory. The obtained results indicate that
+the proposed system is suitable for complex controls task, such
+object surveillance and pursuit. The Clustering
+of Static-Adaptive CMT algorithm has been shown to be a potentially effective object tracking algorithm that can be used
+reliably for image based visual surveying.\\
+
+
+\hspace*{1cm}
+Yu-chia Chung and Zhihai[5] He presented low complexity and reliable moving objects detection and tracking for aerial video surveillance using small UAVs.They explored the ideas of uncertainty analysis and spatiotemporal activity clustering. Image regions
+(blocks) with local motion has been detected using statistical
+hypothesis testing. Using spatiotemporal clustering,
+grouped these moving blocks into moving objects with physical meanings, such as moving vehicles or persons. The proposed algorithm can be extended to the detection of numerous objects.\\
+
+\hspace*{1cm}
+Artem Rozantsev and Vincent Lepetit[6] proposed an approach for detecting flying objects such as Unmanned Aerial Vehicles (UAVs) and aircrafts when they
+occupy a small portion of the field of view, possibly moving against complex backgrounds, and are filmed by a camera that itself moves.
+They argued that solving such a difficult problem requires combining both appearance and motion cues. To this end 
+regression-based approach for object-centric motion stabilization of image patches that allows to achieve effective classification on
+spatio-temporal image cubes and outperform state-of-the-art techniques were required.
+\\
+
+\hspace*{1cm} By analysing various papers it is found that features such as object detection and autonomous navigation are done with the help of complex algorithms. Their implementation consumes more time.  Hence this project aims at designing an autonomous navigating drone having object detection capability by the use of advanced  software openCV and coding using python
+%CHAPTER 3
+
+\chapter{{WEARABLE HEALTH MONITORING SYSTEM}}
+
+\hspace*{1cm} The skeleton of a quadcopter is the frame (chassis). 3D printing of the frame
+is done using poly lactic acid(PLA). PLA is easier and convenient to use and it
+is safer. It has has no odor, and is cheap and widely available. The parts were designed using Fusion360 software and was 3D printed in the college FABLAB. The copter has 6 arms. The frame should be light as well as rigid to host
+a LIPO battery, 6 BLDC motors, 6 ESCs and controller. 
+
+
+
+
+\hspace*{1cm} Brushless dc motors(BLDC) not use brushes for commutation.They are electronically commutated
+and the advantages include better speed vs torque characteristics, high efficiency
+with noiseless operation and very high speed range with longer life. It also provides high performance. As there are
+no brushes to wear out the life of BLDC motor is much longer.There is no sparking and much less electrical noise. “Kv” refers to the constant velocity of a motor. It is measured by the number of revolutions per minute (rpm) that a motor turns when 1V (one volt) is applied with no load attached to that motor. The Kv rating of a brushless motor is the ratio of the motor’s unloaded rpm to the peak voltage on the wires connected to the coils.For a hexacopter 6 motors are required.The motors used in the drone are of 1400 Kv.
+
+
+\hspace*{1cm}The ATmega328 is a single-chip microcontroller created by Atmel in the megaAVR family (later Microchip Technology acquired Atmel in 2016). It has a modified Harvard architecture 8-bit RISC processor core. The Atmel 8-bit AVR RISC-based microcontroller combines 32 kB ISP flash memory with read-while-write capabilities, 1 kB EEPROM, 2 kB SRAM, 23 general purpose I/O lines, 32 general purpose working registers, three flexible timer/counters with compare modes, internal and external interrupts, serial programmable USART, a byte-oriented 2-wire serial interface, SPI serial port, 6-channel 10-bit A/D converter (8-channels in TQFP and QFN/MLF packages), programmable watchdog timer with internal oscillator, and five software selectable power saving modes.
+
+
+\newpage
+\subsection{GSM MODULE}
+
+
+\hspace*{1cm} GSM (Global System for Mobile communications) is a standard developed by the European Telecommunications Standards Institute (ETSI) to describe the protocols for second-generation (2G) digital cellular networks used by mobile devices such as mobile phones and tablets.
+This is an ultra compact and reliable wireless module. The SIM900A is a complete Dual-band GSM/GPRS solution in a SMT module which can be embedded in the customer applications allowing you to benefit from small dimensions and cost-effective solutions.Featuring an industry-standard interface, the SIM900A delivers GSM/GPRS 900/1800MHz performance for voice, SMS, Data, and Fax in a small form factor and with low power consumption. With a tiny configuration of 24mm x 24mm x 3 mm, SIM900A can fit almost all the space requirements in your applications, especially for slim and compact demand of design. 
+\subsubsection{SIM900A General Specification :}
+\begin{enumerate}
+ 
+\item 	Dual-Band 900/ 1800 MHz
+\item 	GPRS multi-slot class 10/8
+\item 	GPRS mobile station class B
+\item 	Dimensions: 24x24x3mm
+
+\item 	Weight: 3.4g
+\item 	Control via AT commands (GSM 07.07 ,07.05 and SIMCOM enhanced AT Commands)
+\item 	SIM application toolkit
+\item 	Supply voltage range : 3.2 ... 4.8V
+\item Low power consumption: 1.0mA(sleep mode)
+\item Operation temperature: -40°C to +85 °C
+ \end{enumerate}
+
+
+\newpage
+
+
+\subsection{LCD DISPLAY}
+
+\hspace*{1cm}LCD (liquid crystal display) is the technology used for displays in notebook and other smaller computers. Like light-emitting diode (LED) and gas-plasma technologies, LCDs allow displays to be much thinner than cathode ray tube (CRT) technology. LCDs consume much less power than LED and gas-display displays because they work on the principle of blocking light rather than emitting it.
+
+
+An LCD is made with either a passive matrix or an active matrix display display grid. The active matrix LCD is also known as a thin film transistor (TFT) display. The passive matrix LCD has a grid of conductors with pixels located at each intersection in the grid. A current is sent across two conductors on the grid to control the light for any pixel. An active matrix has a transistor located at each pixel intersection, requiring less current to control the luminance of a pixel. For this reason, the current in an active matrix display can be switched on and off more frequently, improving the screen refresh time (your mouse will appear to move more smoothly across the screen, for example).
+ 
+ 
+\subsection{TCRT5000}
+
+
+\hspace*{1cm} The TCRT5000 and TCRT5000L are reflective sensors which include an infrared emitter and phototransistor in a leaded package which blocks visible light. The package includes two mounting clips. TCRT5000L is the long lead version.
+
+ 
+
+
+
+
+
+
+
+
+
+\newpage
+\subsection{ ECG ELECTRODES}
+
+
+
+\hspace*{1cm} Electrodes are the actual conductive pads attached to the body surface. Any pair of electrodes can measure the electrical potential difference between the two corresponding locations of attachment. Such a pair forms a lead. However, "leads" can also be formed between a physical electrode and a virtual electrode, known as the Wilson's central terminal, whose potential is defined as the average potential measured by three limb electrodes that are attached to the right arm, the left arm, and the left foot, respectively.
+
+Commonly, 10 electrodes attached to the body are used to form 12 ECG leads, with each lead measuring a specific electrical potential difference.
+
+Leads are broken down into three types: limb; augmented limb; and precordial or chest. The 12-lead ECG has a total of three limb leads and three augmented limb leads arranged like spokes of a wheel in the coronal plane (vertical), and six precordial leads or chest leads that lie on the perpendicular transverse plane (horizontal).
+
+In medical settings, the term leads is also sometimes used to refer to the electrodes themselves, although this is technically incorrect. This misuse of terminology can be the source of confusion.
+
+
+
+\subsection {Recognizing clockwise and counterclockwise propellers}
+\hspace*{1cm} The diagrams above show two types of propellers: clockwise (called pushers) and counterclockwise (called pullers). The most reliable to recognize the correct propeller type by its shape as shown below. The thicker edge is the leading edge which moves in the direction of rotation. The trailing edge is more radical scalloped and usually thinner. 
+
+
+\newpage
+
+\section{Methodology}
+\subsection{ECG}
+
+
+\hspace*{1cm}  An electrocardiogram (ECG) is a recording of the heart’s electrical activity. It is totally painless and can be performed quickly. The heart’s electricity is detected by adhesive electrodes attached to the skin. The resulting measurements are referred to as leads. Various lead systems have been developed and improved over the past century from which electrocardiograms are transcribed. These include the lead systems from Einthoven, Goldberger, and Wilson.
+
+ \subsection{EINTHOVEN's LEAD SYSTEM}
+\hspace*{1cm} Einthoven recorded the first ECG in the world in 1903. As there were no adhesive electrodes or intensifying systems available at this time, the only way to contact the body was to place the extremities in a bucket of salt solution. Einthoven was able to produce a sufficient contact resistance to the body to make the first ECG visible with the help of a string galvanometer. Einthoven could measure the tension between the right and left arm (lead I), the right arm and left leg (lead II), and the left arm and left leg (lead III. \\\
+\subsection{3 LEAD}
+\hspace*{1cm} 3-lead ECGs are used most often for recording a 24-hour reading. A 24-hour reading is a frequently used tool for the diagnosis of heart problems and is reimbursed as a long-term reading.
+
+
+
+
+
+
+
+\hspace*{1cm}
+Telemetry receivers and telemetry transmitters are data acquisition components used to gather information from remote locations via wireless communication. Telemetry receivers and telemetry transmitters can be produced as separate receiver and transmitter units. Telemetry receivers and telemetry transmitters have several performance characteristics, including:\\
+
+\begin{enumerate}
+\item Operating frequency, which is the range of broadcast and received signals
+ \item Measurement resolution, which is the minimum digital resolution
+\item Maximum transmission distance, which is the maximum distance that the transmitter and receiver can be separated and still communicate
+\item Data rate, which is the amount of data in bits per second that can be transmitted
+\item  Output power, which is the maximum signal power that a device can transmit
+
+\end{enumerate}
+
+\subsection{ Different flight modes}
+
+Flight modes that use GPS-positioning data require an active GPS lock prior to takeoff. To see if your autopilot has acquired GPS lock, connect to a ground station or consult your autopilot’s hardware overview page to see the LED indication for GPS lock.
+
+\begin{enumerate}
+\item Stabilize: Stabilize mode allows  to fly vehicle manually, but self-levels the roll and pitch axis.
+\item Alt hold: In altitude hold mode, Copter maintains a consistent altitude while allowing roll, pitch, and yaw to be controlled normally. This page contains important information about using and tuning alt hold.
+\item Loiter: Loiter Mode automatically attempts to maintain the current location, heading and altitude. The pilot may fly the copter in Loiter mode as if it were in a more manual flight mode but when the sticks are released, the vehicle will slow to a stop and hold position.
+\item RTL(Return to launch: RTL mode (Return To Launch mode) navigates Copter from its current position to hover above the home position. The behavior of RTL mode can be controlled by several adjustable parameters. 
+\item Auto: In Auto mode the copter will follow a pre-programmed mission script stored in the autopilot which is made up of navigation commands (i.e. waypoints) and “do” commands (i.e. commands that do not affect the location of the copter including triggering a camera shutter). 
+\item Drift: Drift Mode allows the user to fly a multicopter as if it were a plane with built in automatic coordinated turns.
+The user has direct control of Yaw and Pitch, but Roll is controlled by the autopilot. 
+\item Follow: When switched into Follow, the vehicle will attempt to follow another vehicle (or anything publishing its position) at a specified offset. The vehicle lead vehicle’s position must be published to the vehicle in Follow mode using a telemetry system.
+
+\end{enumerate}
+
+\newpage
+\section{Image Processing }
+
+\hspace*{1cm} The Raspberry Pi camera board is intended to be controlled with free, open source software to
+enable the camera to capture still image photos or video.There two programs to capture data from the
+Raspberry Pi board camera and process the data using the Graphics Processing Unit(GPU). These programs were the basis
+of the image processing and object detection programs that have been developed as they are
+capable of providing accessible image data from the camera board in an efficient manner. The two
+programs are named “raspistill” and “raspivid”, after the approach method either program takes to
+capture and output image data.\\\\
+\hspace*{1cm} “Raspistill” is designed to “capture a still frame and encode it to file”. Raspistill captures still
+image photos and provides the data to the user to be displayed and saved. Using a program that is
+based on still images is simple to expand upon to allow image processing capabilities. The image
+capture program can run in its entirety, saving the captured image as a JPEG file. The file can then be
+opened by the image processing program, processed as desired and perform any actions as required based on it's output.The advantage of using raspistill is simplicity. Every captured frame is saved as a JPEG file which is
+then processed by a separate image processing program. The separation of the program allows the
+programs to be designed and optimised separately and executed sequentially. This allows for a
+simpler, segmented design process.\\\
+
+\hspace*{1cm} The disadvantage of this method is that raspistill is run in its entirety for every image frame that is
+processed. This includes the commands for setting up the camera and image capture conditions and
+then closing down the capture process. This is wasteful as the unnecessary setup and closing
+commands are executed every frame, decreasing the frame rate and image processing performance.If the process is desired to operate at high speed with each cycle taking the minimum possible time
+to complete, it is clear that the unnecessary camera setup and closing commands of the raspistill
+program would detract from optimal performance. A more logical approach would be to use an image capture program based on video that allows the image processing to be done between frame
+captures with the image capture system remaining setup and calibrated between frames. Therefore,
+raspivid is a more optimal choice than raspistill for speed driven applications.\\\
+
+\hspace*{1cm} Raspivid” is designed to “capture a video stream and encode it to file”. Raspivid captures video
+and provides the data to the user to be displayed and saved. Using a program based on video
+capture for live image processing applications requires a different approach to a program based on
+still photo capture as the video based program is unable to wait until the video is captured and
+saved before processing. Therefore, the image processing must be done simultaneously or in
+between the video capture. In other words, the image capture and image processing algorithms
+must be interconnected and operated simultaneously.\\\
+
+\hspace*{1cm} The advantage of a video based image processing program is that once initialised, the program is
+able to capture many frames for processing before finally terminating at the end of the video. In
+other words, the image capture setup and terminating commands are only run once per video. This
+is in contrast to the still image program that runs these commands for every image frame. Therefore,
+the video based system is more efficient as fewer commands must be computed per frame. This
+greater efficiency improves image capture speed and results in a higher possible frame rate.\\\
+
+\hspace*{1cm} The disadvantage of a raspivid based image processing program is complexity as the image
+processing must be done concurrently with the video capture program. This means that the image
+capture and image processing are now interconnected and cannot be designed independently.
+
+
+
+OpenCV is an open source C++ library for image processing
+and computer vision, originally developed by Intel. It is a library of many inbuilt functions mainly aimed at real time image processing. It provides programs or functions which can be used to train the classifiers for object detection system. This process is called HaarTraining. Thus object classifiers can be created using the functions.
+
+
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=.7]{ipa}
+%\caption{Image processing algorithm}
+%\label{circuit}
+%\end{figure}
+
+
+
+
+\section{Connection of Raspberry Pi to Pixhawk Flight Controller}
+
+\hspace*{1cm} Connecting raspberry pi to pixhawk controller is essential because this can be used to perform additional tasks such as image recognition which simply cannot be done by the Pixhawk due to the memory requirements for storing images.
+Connection between Pixhawk and pi is established via Universal Asynchronous Receiver-Transmitter(UART) method.
+
+
+\newpage
+
+\section{Autonomous Control System}
+\hspace*{1cm} The simplest method of autonomously controlling the UAV was by replicating the remote control
+signals provided to the flight controller with the on-board Raspberry Pi. When in manual remote
+control configuration, the flight controller used accepts the four remote control signals
+from the on-board remote control receiver . Hijacking the remote control signal inputs to the
+flight controller provides for a simple autonomous control interface as the Raspberry Pi only needs
+to create signals to instruct the flight controller how the UAV should move. The flight controller
+then handles the complex flight mechanics and attitude stabilisation and provides output signals to
+the six Electronic Speed Controllers (ESCs) to control each motor individually.\\\\
+\hspace*{1cm} The relay circuit is used to switch between the manual remote control signals
+and the autonomous Raspberry Pi signals. The Raspberry Pi is able to perfectly replicate these signals
+such that the flight controller is unable to differentiate between the manual remote control signals
+and the autonomous Raspberry Pi signals. This ensures that performance and capabilities of the
+UAV are identical in manual or autonomous mode. Importantly, using the flight controller in
+the autonomous control program ensures that the safety features of the flight controller are still
+active while the UAV is in autonomous operation.\\\\
+\hspace*{1cm} Developing a custom autonomous GPS waypoint navigation system would be useful for carrying out
+autonomous location dependent tasks, but would also provide greater capabilities and
+environmental awareness to the other autonomous tasks carried out by the multirotor UAV.
+The GPS module connected to the Raspberry Pi’s USB port and operated as a serial device. No Linux
+driver was included with the module therefore code had to be written to read and process data from
+the module. The serial library of WiringPi , WiringSerial was used to interface
+with the module. The GPS module outputs data at 115200 baud with an update frequency of 5Hz
+. The module outputs GPS data in 5 different NMEA (National Marine Electronics Association)
+sentence formats . The GPRMC (Global Positioning System Recommended Minimum
+Sentence C) sentence is used as it contains the complete data available from the GPS module.\\\\
+\hspace*{1cm}
+The GPS concept is based on time and the known position of GPS specialized satellites. The satellites carry very stable atomic clocks that are synchronized with one another and with the ground clocks. Any drift from true time maintained on the ground is corrected daily. In the same manner, the satellite locations are known with great precision. GPS receivers have clocks as well, but they are less stable and less precise.
+\\\\
+\hspace*{1cm}
+Each GPS satellite continuously transmits a radio signal containing the current time and data about its position. Since the speed of radio waves is constant and independent of the satellite speed, the time delay between when the satellite transmits a signal and the receiver receives it is proportional to the distance from the satellite to the receiver. A GPS receiver monitors multiple satellites and solves equations to determine the precise position of the receiver and its deviation from true time. At a minimum, four satellites must be in view of the receiver for it to compute four unknown quantities (three position coordinates and clock deviation from satellite time).To reduce components and therefore increase flight time and responsiveness through reduced
+weight and reduced power consumption, the first autonomous waypoint algorithm developed
+utilised only a single GPS data module to provide all the data required by the multirotor UAV. The
+multirotor UAV then must compare its current GPS position to the target GPS position and then
+move towards the target accordingly.
+ For Copter, Plane and Rover the home position is set as the location where the vehicle was armed. This means if you execute an Return To Launch, it will return to the location where it was armed, so arm your vehicle in the location you want it to return to, or use a rally point to setup an alternative return point. 
+
+
+\chapter{{SIMULATION MODEL}}
+
+
+\section{Modelling of Structure}
+
+
+
+\hspace*{1cm} There are dozens of variables to account for, and the drone has to be perfectly balanced or else it won't fly. Beyond that, optimizing the drone to maximize speed, maneuverability or battery life is an even more difficult problem. The software Ceases and Fusion 360 let users design custom drones from a library of parts available in the software's database. Users can then specify restrictions such as the cost of the drone, how much weight it could carry, or the battery life.
+The system  takes  restrictions and calculates the specifics of the drone, such as dimensions, angles, weight, and thrust to create a drone that will actually fly. These software also develops a control program to optimize the drone's flight path.\\\
+
+\hspace*{1cm} Design of 3D printed frame was done using Fusion 360. Fusion 360 connects the entire product development process in a single cloud-based platform. Also testing and fabrication is possible in a single tool. Caeses software gives you flexible parametric modeling but also integrated capabilities for process automation and shape optimization. Simulation of propellers was done using this software.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.8]{led}
+\caption{Design of 3D printed frame}
+\label{circuit}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.9]{led}
+\caption{Propeller design}
+\label{circuit}
+\end{figure}
+\hspace*{1cm}The design of the drone consists of a central base plate which holds the whole structure.It gives the structural integral to the drone.The 6 motor mounts and the battery case is attached along with it.The motor mounts are connected to the end of an aluminium rod which is connected to the base plate.The battery mount holds and protect the battery.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.5]{led}
+\caption{Design of centre base plate}
+\label{circuit}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.5]{led}
+\caption{Design of battery case}
+\label{circuit}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.5]{led}
+\caption{Design of flight controller mount}
+\label{circuit}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.5]{led}
+\caption{Design of motor mount}
+\label{circuit}
+\end{figure}
+\chapter{{RESULTS}}
+
+
+
+
+
+\section{Programming Flight Controller}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.9]{led}
+\caption{Programming of flight controller}
+\label{circuit}
+\end{figure}
+\newpage
+\hspace*{1cm} Programming is done for controlling the drone. The Flight Controller(FC) used is the pixhawk. The complete program is written in c++ language.  The readings taken from inertial sensor , barometer and gps are read and analyzed by the FC. The sensor readings are passed through an extended kalman filter to smooth out the values. Various flight modes such as stabilize mode , acro mode, altitude hold, position hold are programmed into it.
+
+\section{GPS guided navigation algorithm}
+
+\hspace*{1cm} The Geo-Fencing support in Plane allows you to set a virtual ‘fence’ around the area you want to fly in, specified as an enclosed polygon of GPS positions plus a minimum and maximum altitude.
+ When fencing is enabled, if your plane goes outside the fenced area then it will switch to GUIDED mode, and will fly back to a predefined return point.
+During fully autonomous operation the fence can be used as a failsafe measure to ensure the aircraft stays within the intended flight area.
+ the plane will automatically engage the fence after takeoff is complete and automatically disable the fence when it arrives at a landing waypoint.
+ This virtual fence was coded into the program as an closed loop control system, in which the GPS coordinates were continuously monitored and checked.
+ It constantly check coordinates at specific intervals and maintain it in the virtual fence.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.7]{led}
+\caption{Programming of GPS guided navigation}
+\label{circuit}
+\end{figure}
+
+
+\newpage
+\section{Programming for object detection}
+\hspace*{1cm}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.5]{led}
+\caption{Object detection algorithm}
+\label{circuit}
+\end{figure}
+
+\begin{itemize}
+\item Collect image set of a particular object. e.g: person
+\item Crop these images for better haarCascade file.
+\item Collect negative image set which doesn't contain object.
+\item Use openCV createsamples utility to generate positive.vec file for generating  variations in image set.
+\item Create collection file format.dat file of negative images .
+\item Using openCV haartraining utility generate xml file which is called cascade classifier file to detect object.
+\item Use openCV  for performing real time detection in video.
+\item Use cvCaptureFromCAM  to capture from camera.
+\item Use cvQueryFrame to quering frame by frame for processing images to get Reason Of Interest(ROI).
+\item Convert image to grayscale image.
+\item Use Histogram Equalisation method for more accuracy.
+\item Using  cascade classifier class of openCV load haar cascade xml file generated.
+\item Use detectMultiScale method of cascade classifier class to detect object and store them in variable.
+\item Iterate the variable so all ROIs are available.
+\item Use rectangle function to generate rectangle on ROI.
+\end{itemize}
+
+
+
+\section{Hardware implementation and test flight}
+
+\hspace*{1cm} Parts are assembled according to the connection diagram. \\\\
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.7]{led}
+\caption{Hexacopter structure after completion}
+\label{circuit}
+\end{figure}
+
+\newpage
+\hspace*{1cm} After fully assembling the flight controller, connection of the USB cable to the Pixhawk to download the firmware from Mission Planner was carried out. 
+ The next step is to calibrate the hardware. The following calibrations do not have to be performed in order.
+Frame Type Configuration, compass calibration, radio control calibration, accelerometer calibration and ESC calibration were done using Mission Planner software.
+ By the process of arming, rotation of motors
+and it's direction verifed. Test 
+fight was conducted using the GPS coordinates of a
+corner of the sports ground as destination. The path is shown in the fgure below.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.6]{led}
+\caption{GPS location of test flight}
+\label{circuit}
+\end{figure}
+
+By analyzing the video captured and then comparing it with trained datasets, it is possible to identify objects/people in real time.In the project, the drone was trained with 25 different classes of datasets like person,car,mobile phones etc.So that it could detect these trained datasets during flight.The captured video from camera is processed live on board with the help of raspberry pi.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.35]{led}
+\caption{Detection of person}
+\label{circuit}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.6]{led}
+\caption{Detection of cars}
+\label{circuit}
+\end{figure}
+
+
+\chapter{{CONCLUSIONS}}
+
+
+\hspace*{1cm} An Autonomous navigation drone with help of object recognition and GPS coordination was designed and implemented. Each component was tested and verified to be working as intended. Test flights have been
+conducted and the results confirmed that the hexacopter can fly in a stable manner.
+The drone also has obstacle avoidance capability to avoid collision.
+Autonomous flight was successfully completed by giving the required GPS coordinates of the places. Live object detection was also done.The tuning of the PID control system was accomplished using custom test benches. Three different PID control systems for pitch, roll, and yaw had been tuned carefully for proper stabilization.The different flight modes such as stabilize, altitude hold, position hold and auto mode, programmed into flight controller were tested successfully.
+
+\begin{thebibliography}{99}
+\addcontentsline{toc}{chapter}{{ References}}
+
+\bibitem{}  Narendra Limbu, Indrajit Ahuja, Harshal Sonar, Sudeep Solanki, Soniya Jain, Hoam Chung, Debraj Chakraborty, "Outdoor Co-operative Control Of Multiple Quadcopters using decentralized
+GPS localisation", \textbf{\emph{IEEE 10th International Workshop on Robot Motion and Control, July 6-8, 2015 }}
+
+\bibitem{} Dror Epstein and Dan Feldman, "Quadcopter Tracks Quadcopter via Real-Time Shape Fitting",\textbf{\emph{IEEE Robotics and Automation Letters, VOL. 3, NO. 1, January 2018} }
+
+\bibitem{}  Sonia Waharte and Niki Trigoni[3],"Supporting Search and Rescue Operations with
+UAVs",\textbf{\emph{2010 International Conference on Emerging Security Technologies, 7 Sept. 2010}}
+
+\bibitem{} Anjan Chakrabarty and Robert Morris, "Autonomous Indoor Object Tracking with the Parrot AR.Drone", \textbf{\emph{International Conference on Unmanned Aircraft Systems (ICUAS) June 7-10, 2016}}
+
+\bibitem{} Yu-chia Chung and Zhihai, "Low complexity and reliable moving objects detection and tracking for aerial video surveillance using small UAVs" , \textbf{\emph{Proceedings of
+the IEEE , Volume: 89 Issue: 10 Oct 2007}}
+
+\bibitem{}  Artem Rozantsev and Vincent Lepetit, "Detection of flying objects such as Unmanned Aerial Vehicles (UAVs) and aircrafts", \textbf{\emph{Pattern Analysis and Machine Intelligence,
+IEEE Transactions on Volume: 23 Issue: 8 Aug 2001
+,pp.873-889 }}
+
+\bibitem{} J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, “Unified, real-time object detection”, \textbf{\emph{ Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2016, pp. 779-788.}}
+
+
+\end{thebibliography}
+
+
+
+
+\end{document}
+

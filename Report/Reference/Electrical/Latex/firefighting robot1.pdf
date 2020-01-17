@@ -1,0 +1,638 @@
+\documentclass[12pt,a4paper]{report}
+\date{}
+\usepackage[hmargin={1.15in,1in},vmargin={1in,1.1in},]{geometry}
+%\usepackage[hmargin={1.5in,1.25in},vmargin={1in,1in},]{geometry}
+\usepackage{amsmath,graphicx,makeidx,listings,subfigure,float,setspace}
+\usepackage{fancyhdr}
+\thispagestyle{empty}
+\usepackage{sectsty}
+\usepackage{lipsum}
+%\usepackage[center]{titlesec}
+\usepackage[final]{pdfpages}
+\usepackage{titlesec}
+\renewcommand\listfigurename{\Huge \begin{center} {List of Figures} \end{center} }
+\renewcommand{\contentsname}{ \begin{center} TABLE OF CONTENTS  \end{center}}
+\renewcommand\listtablename{\Large \begin {center}{LIST OF TABLES} \end{center}}
+
+%\renewcommand\thebibliography{THEBIBLIOGRAPHY}
+%---------------------------------FRONT PAGE--------------------------------------------------------------
+
+
+\title{{\bf \Large FIRE FIGHTING ROBOT USING ZIGBEE TECHNOLOGY   }\\    
+\vspace{0.2cm}
+{\normalsize {A PROJECT REPORT}}\\
+\vspace{0.2cm}
+{\normalsize{ submitted by}}\\
+\vspace{0.20 cm}
+{\normalsize\textbf{APARNA AUGUSTIN}} \\
+\normalsize {Reg. No :\textbf{ MAC15EC027}}\\
+\vspace{0.20 cm}
+{\normalsize\textbf{ARCHANA K M}} \\
+\normalsize {Reg. No :\textbf{ MAC15EC031}}\\
+\vspace{0.20 cm}
+{\normalsize\textbf{ASHLY ANTONY}} \\
+\normalsize {Reg. No :\textbf{ MAC15EC041}}\\
+\vspace{0.20 cm}
+\normalsize {\textbf{ SEMEEHA MUMTHAZ}}\\
+\normalsize {Reg. No :\textbf{ MAC15EC110}}\\
+\vspace{0.20 cm}
+\normalsize{to}\\ 
+\vspace{0.4cm}
+\normalsize {the APJ Abdul Kalam Technological University}\\
+\normalsize {in partial fulfillment of the requirements for the award of the Degree}\\
+\vspace{0.4cm}
+\normalsize {of}\\
+\vspace{0.4cm}  
+\normalsize {Bachelor of Technology}\\  
+\normalsize {in} \\
+\normalsize {\emph{ Electronics and Communication Engineering} }\\
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.85]{ma}
+\end{figure}
+{\large \textbf {Department of Electronics and Communication Engineering}}\\
+\vspace{0.4cm}
+\normalsize {Mar Athanasius College of Engineering}\\
+\normalsize {Kothamangalam, Kerala, India 686 666}\\
+\vspace{0.4cm}
+\author \large {MAY 2019}}
+
+
+%----------------------------------TABLE OF CONTENTS DEPTH-----------------------------------------------
+%\setcounter{tocdepth}{1}
+\renewcommand{\bibname}{ REFERENCES}
+%-------declaration----------------------------------------
+
+%CERTIFICATE
+\begin{document}
+%\begin{doublespace}
+\newpage
+\maketitle
+\begin{center}
+{\large \bf{DEPARTMENT OF ELECTRONICS AND COMMUNICATION ENGINEERING}}\\
+{\large \bf{MAR ATHANASIUS COLLEGE OF ENGINEERING}}\\
+{\large \bf{KOTHAMANGALAM}}
+\end{center}
+%\end{doublespace}
+\begin{center}
+\thispagestyle{empty}
+\includegraphics[scale=0.9]{ma}\\[7pt]
+\large{\bf{CERTIFICATE}}
+\end{center}
+\onehalfspacing This is to certify that the report entitled {\large{ \textbf{Fire Fighting Robot Using Zigbee Technology }}} submitted by \textbf{Ms.Aparna Augustin, Ms. Archana K M, Ms. Ashly Antony and Ms. Semeeha Mumthaz} to the APJ Abdul Kalam Technological University in partial fulfillment of the requirements for the award of the Degree of Bachelor of Technology in  Electronics \&\ Communication Engineering is a bonafide record of the project work carried out by them under our guidance and supervision. This report in any form has not been submitted to any other University or Institute for any purpose.
+\vspace{0.8in}
+\begin{flushleft}
+%.................................. \hfill {\bf ............................... }\\ 
+{\large{\textbf{Prof. Haripriya P}}}\hfill{\large {\textbf{Dr. Mathew K}}}
+\end{flushleft}
+
+\begin{flushleft}
+ %                                  \hfill {\bf ................................. }
+Project guide                               \hfill{Head of the Department}
+\end{flushleft}
+ 
+%--------------------------------------ACKNOWLEDGMENT------------------------------------------------
+\newpage
+\pagenumbering{roman}
+\setcounter{page}{1}
+\begin{verbatim}
+\end{verbatim}
+\begin{center}
+\textbf {\large ACKNOWLEDGEMENT}
+\end{center}
+\vspace{0.4125in}
+\par
+It is a great pleasure to acknowledge all those who have assisted and supported us for successfully completing our project.
+\\
+\par 
+First of all, we thank God Almighty for his blessings as it is only through his grace that we were able to complete our project successfully.
+\\
+\par 
+We are deeply indebted to Dr. Solly George, Principal, Mar Athanasius College of Engineering for her encouragement and support.
+\\
+\par
+We express our deep sense of gratitude to Dr. Mathew K, Head of Electronics \&\  Communication Engineering Department.
+\\
+\par
+We also extend our deep sense of gratitude to our Project Guide, our Project Coordinator and Faculty Advisor, Haripriya P, Professor, Electronics \&\  Communication Engineering Department for her constant support and immense contribution for the success of our project.
+\\
+\par
+ We whole - heartedly thank all our classmates, for their valuable suggestions and for the spirit of healthy competition that exists between us. 
+ 
+ %-----------------------------------------ABSTRACT---------------------------------------------
+ 
+\newpage
+\begin{verbatim}
+\end{verbatim}
+\begin{center}
+{\bf{ABSTRACT}}
+\addcontentsline{toc}{chapter}{Abstract}
+\end{center}
+\vspace{30pt}
+\begin{doublespace}
+\hspace*{1cm}One technology that grows at this moment is the Robotic technology. Robots can help people performing certain jobs, especially in the field that requires a high degree of precision, high-risk, or a job that requires a great power. In general, the robot can be defined as a mechanical device capable of performing human tasks or behave like humans[1,2]. Fire disaster is a common disaster caused by humans. It can occur at anytime, anywhere, with varies trigger that could lead to fires. Important factors in handling of fire are how precise we define a location of the source and how fast we put out the fire. One man's work that can be perfectly done by robots is fire extinguisher.\\\\ 
+ \hspace*{1cm} 
+Here we are using a microcontroller (PIC16F877A) to perform appropriate action when fire is detected in an area.The robot can be remotely controlled by using a joystick,thus it is expected to reduce the risk of fire accidents.A camera module is embedded in the robotic vehicle to provide visual indications for the accurate control of the vehicle.Zigbee technology is used for transmitting commands from the remote section.Zigbee is a communication protocol based on IEEE 802.12.4 standard,is well suited for short range applications with low data rates.When compared to the other relevant technologies such as bluetooth and WiFi,Zigbee is a low power and low cost communication standard.The coverage area of Zigbee is around 10-100 meters.    \\\\         
+
+\end{doublespace}
+
+
+%-----------------------------TABLE OF CONTENTS-----------------------------------------------------------
+\newpage
+{
+%\includepdf[pages={1}]{contents}
+}
+\tableofcontents
+%\listoftables
+\addtocontents{lot}{ \hspace{0.4cm} Table No. \hspace{1in} Title \hfill{Page No.}\par}
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\addtocontents{lof}{ \hspace{0.4cm} Figure No. \hspace{1in} Title \hfill{Page No.}\par}
+
+%----------------------HEADER AND  FOOTER-----------------------------------------------------------------
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\pagestyle{fancy}
+\lhead{\emph{Fire Fighting Robot Using Zigbee Technology }}
+\chead{}
+\rhead{}
+\lfoot{\emph{B.Tech, ECE, MACE, Kothamangalam}}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\chaptername}{ {CHAPTER}}
+%\renewcommand{\cftchapfont}{16pt}
+\chapterfont{\centering}
+\renewcommand\bibname{REFERENCES}
+%------------INTRODUCTION---------------------------------------------------------------------------------
+\titleformat{\chapter}[display]{ \filcenter \Large \bfseries}{\chaptertitlename\ \thechapter}{5pt}{\Large}
+\titleformat*{\section}{\large\bfseries}
+
+\chapter{ INTRODUCTION}
+
+\hspace*{1cm}One technology that grows at this moment is the Robotic technology. Robots can help people performing certain jobs, especially in the field that requires a high degree of precision, high-risk, or a job that requires a great power. In general, the robot can be defined as a mechanical device capable of performing human tasks or behave like humans[1,2]. Fire disaster is a common disaster caused by humans. It can occur at anytime, anywhere, with varies trigger that could lead to fires. Important factors in handling of fire are how precise we define a location of the source and how fast we put out the fire. One man's work that can be perfectly done by robots is fire extinguisher.\\\\
+
+\hspace*{1cm} 
+This type of work requires quick reaction to avoid fire spreading too wide. When the hazard area spread, fire-fighter jobs will be a tough job and increase the risk. It is often that fire fighters cannot access the source of fire due to the damage of building and very high temperature, or even due to the presence of explosive materials. Considering the human constraints and due to high level of risk in handling of the fire, it would require a technological development that could help fire fighters in extinguishing the fire e.g. by using robots. Fire extinguisher robot would be very useful to extinguish the fire [3, 4]. The use of fire fighting robot that can be controlled from a distance specified is expected to reduce the risk. With this, fire fighters do not have to enter the building since the building that burnt can be collapsed and there was potential explosion at any time.
+\\\\
+ \hspace*{1cm} 
+Here we are using a microcontroller (PIC16F877A) to perform appropriate action when fire is detected in an area.The robot can be remotely controlled by using a joystick,thus it is expected to reduce the risk of fire accidents.A camera module is embedded in the robotic vehicle to provide visual indications for the accurate control of the vehicle.Zigbee technology is used for transmitting commands from the remote section.Zigbee is a communication protocol based on IEEE 802.12.4 standard,is well suited for short range applications with low data rates.When compared to the other relevant technologies such as bluetooth and WiFi,Zigbee is a low power and low cost communication standard.The coverage area of Zigbee is around 10-100 meters.    \\\
+ 
+ 
+ 
+
+ \hspace*{1cm}  In this project our objective is to build a fire extinquisher robot controlled by a remote at a particular distance from the fire prone area.This robot extinquishes fire on detection and secure the fireguards.When fire is detected the robot start throwing water,gas,foam or other materials used to extinquish fire.   \\\\
+
+\section{ Objective}
+
+
+\hspace*{1cm}
+The objective of this project is to design, implement and test a fire extinquishing robotic vehicle which is capable of navigating alone on a modelled floor while actively scanning the flames of fire.
+A Zigbee module will be used to transmit commands that controls the movement of the vehicle and water pumping mechanism.
+PIC microcontroller is been used as the controller which coordinates and handles the data transfer mechanism.The remote can be operated at a distance of around 10-20 meters from the fire affected area,thus ensuring protection to the fireguards. \\\
+\section{Literature Survey}
+\hspace*{1cm} [1] Reference1 A. Kader,  Tanvir Rahman, 3Showmic Paul, 4Rajvi Sutra Dhar, 5Md. Saiful Islam 
+\\In this paper, the objective is to build an autonomous fire extinguisher robot which can detect fire hazard automatically, inform about the hazard to the nearby fire service authority and takes initiative to stop the spreading of fire. Fire hazard is detected by sensing three parameters: temperature, smoke and flame. Three different sensors are used to measure these parameters. If temperature or smoke increases above a critical value the robot decides the event as a fire hazard. In this case, robot starts running through a predefined path to search fire by flame sensor. When flame sensor detects a flame, robot start throwing water, foam, gas, or other materials used extinguish a fire. Since this robot is built as a prototype it has various limitations. More research should do to improve the current robot. In the present condition it can extinguish fire only in the room where it is placed but that can be solved by placing sensors in different rooms which will alert the robot as soon as it detects fire. The robot will then go there to extinguish the flame. The water carrier can also be replaced by more efficient fire Extinguisher. \\\\ 
+ \hspace*{1cm}[2]Reference Akshay Deshmukh1, Nikhil More2, Shubham Nagare3, V.B. Sarode
+ A robot is an automatically guided machine, able to do tasks on its own. This project, which is our endeavour to design a Fire Fighting Robot, comprises of a machine which not only has the basic features of a robot, but also has the ability to detect fire and extinguish it This robot processes information from its various sensors and key hardware elements through microcontroller. It uses thermistors or ultraviolet or visible sensors to detect the fire accident. A robot capable of extinguishing a simulated tunnel fire, industry fire and military applications are designed and built. Ultraviolet sensors/thermistors/flame sensors will be used for initial detection of the flame. Once the flame is detected, the robot sounds the alarm with the help of buzzer provided to it, the robot actuates an electronic valve releasing sprinkles of water on the flame. The project helps to generate interests as well as innovations in the fields of robotics while working towards a practical and obtainable solution to save lives and mitigate the risk of property damage. Fire fighters face risky situations when extinguishing fires and rescuing victims, it is an inevitable part of being a fire fighter. In contrast, a robot can function by itself or be controlled from a distance, which means that firefighting and rescue activities could be executed without putting fire fighters at risk by using robot technology instead. In other words, robots decrease the need for fire fighters to get into dangerous situations. This robot provides fire protection when there is fire in a tunnel or in an industry by using automatic control of robot by the use of microcontroller in order to reduced loss of life and property damage. This robot uses dc motors, castor wheel, microcontroller, sensors, pump and sprinkler. Microcontrolleris the heart of the project. Microcontroller controls all the parts of the robot using programming. In this robot as
+the fire sensor senses the fire, it sends the signal to microcontroller; since the signal of the sensor is very weak
+the amplifier is used so that it can amplify the signal and sends it to microcontroller. As soon as microcontroller
+receives the signala buzzer sounds, the buzzer sound is to intimate the occurrence of fire accident. After the
+sounding of the buzzer microcontroller actuates the driver circuit and it drives the robot towards fire place, as
+the robot reaches near the fire microcontroller actuates the relay and pump switch is made ON and water is
+sprinkled on the fire through the sprinkler.This project gives a detailed mechanism about the robot that continuously monitors, intimates the respective personnel and extinguishes the fire. In the industry if any fire accident occurs, there is a need of person to monitor continuously and rectify it. In this process if any time delay takes place irreparable loss occurs since it is a cotton industry. 
+\\\\
+\hspace*{1cm}[3]ReferenceMiss. Supriya S. Kadam,Miss. Dipali A. Mali, Miss Pratima S. Mane 
+Using the proposed technology, the robot can
+detect and extinguish fire. Robot can be act as automatic
+location finder and path tracer. It provides greater
+efficiency to detect the flame and it can extinguish fire before
+it become uncontrollable and threat to life [4]. This project
+will be complete addition of electronic circuits, hardware
+designing and software knowledge. Less human
+intervention is needed for the operation of the robot. It
+stops the spreading of fire effectively by the use of water
+sprinkler. The robot can be designed to avoid obstacles in
+its path by using IR obstacle detection sensor [3].
+It can be reprogrammed easily to add
+modifications. It can extinguish or fight fire for a small
+amount of time until human fire brigade arrive. It can
+detect fire only in certain locations. It will be a safest mode
+of operation by which many disasters can be prevented.Using the proposed technology, the robot can
+detect and extinguish fire. Robot can be act as automatic
+location finder and path tracer. It provides greater
+efficiency to detect the flame and it can extinguish fire before
+it become uncontrollable and threat to life [4]. This project
+will be complete addition of electronic circuits, hardware
+designing and software knowledge. Less human
+intervention is needed for the operation of the robot. It
+stops the spreading of fire effectively by the use of water
+sprinkler. The robot can be designed to avoid obstacles in
+its path by using IR obstacle detection sensor [3].
+It can be reprogrammed easily to add
+modifications. It can extinguish or fight fire for a small
+amount of time until human fire brigade arrive. It can
+detect fire only in certain locations. It will be a safest mode
+of operation by which many disasters can be prevented
+In fire fighting robot, when fire occurs, the
+fire sensor sense the fire. Fire sensor used is IR sensor
+which works on the principle of photoemission.\\\\
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+\chapter{{FIRE FIGHTING ROBOT USING ZIGBEE TECHNOLOGY}}
+
+\section{Block Diagram}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.8]{block}
+\caption{Block diagram}
+\label{circuit}
+\end{figure}
+\hspace*{1cm} In the robot section a microcontroller is employed to handle data transfer operations.We are using PIC microcontroller (PIC16F877A),which are a family speciallised microcontroller chips produced by microchip technology.The acronym PIC stands for peripheral interface controller.A  microcontroller is compact microcomputer designed to govern the operation of embedded systems in motor vehicles robots etc. 
+\hspace*{1cm} Two paired Zigbee modules is been used in the transmitter and receiver sections for the purpose of wireless data transfer.The Zigbee modules and motor drivers are interfaced to the pic microcontroller.The DC motors and relays are driven by the commands from the controller,so as to accurately control the vehicle movement and water pumping mechanism.The decision making algorithm is based on the data received from the remotely placed Zigbee module.The movement of the vehicle can be controlled using a remote placed at a certain distance from fire affected area.A micro wireless camera is embedded in the system to provide visual indications to the person at the remote section. 
+
+\section{Circuit Diagram}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{circuit1}
+\caption{Schematic of robot}
+\label{circuit}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{circuit2}
+\caption{Schematic of remote}
+\label{circuit}
+\end{figure}
+\hspace*{1cm}The system works by Zigbee communication protocol.The coverage area of Zigbee ranges from 10-30 meters.For the effective surveillence of the affected area a camera module is employed in the system.Controlling of the robot is done through a remote control mechanism.In the remote section Zigbee module (coordinator) and joystick is interfaced with the arduino nano,and in the robot section Zigbee module(router) is interfaced with the pic controller.The arduino nano is preprogrammed in such a way that to transmit specific commands to the Zigbee module through a serial monitor  according to the changes in the movement of the joystick(for example when joystick pushes forward its sends '2' to the Zigbee module). Zigbee module at the robot section receives these commands and transmit it to the pic controller.The pic controller will take appropriate action according to the commands received.\\\\
+\newpage
+\section{Components}
+\subsection{Pic Microcontroller}
+\hspace*{1cm}The PIC microcontroller PIC16f877a is one of the most renowned microcontrollers in the industry. This microcontroller is very convenient to use, the coding or programming of this controller is also easier. One of the main advantages is that it can be write-erase as many times as possible because it use FLASH memory technology. It has a total number of 40 pins and there are 33 pins for input and output. 
+There are 40 pins of this microcontroller IC. It consists of two 8 bit and one 16 bit timer. Capture and compare modules, serial ports, parallel ports and five input/output ports are also present in it.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{pic1}
+\caption{PIC16F877A}
+\label{circuit}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{pic2}
+\caption{Microcontroller pin configeration}
+\label{circuit}
+\end{figure}
+\newpage
+\subsection{Zigbee Module}
+
+\hspace*{1cm}Zigbee communication is specially built for control and sensor networks on IEEE 802.15.4 standard for wireless personal area networks (WPANs), and it is the product from Zigbee alliance. This communication standard defines physical and Media Access Control (MAC) layers to handle many devices at low-data rates. These Zigbee’s WPANs operate at 868 MHz, 902-928MHz and 2.4 GHz frequencies. The date rate of 250 kbps is best suited for periodic as well as intermediate two way transmission of data between sensors and controllers.
+Zigbee is low-cost and low-powered mesh network widely deployed for controlling and monitoring applications where it covers 10-100 meters within the range. This communication system is less expensive and simpler than the other proprietary short-range wireless sensor networks  as Bluetooth and Wi-Fi.\\\\
+Features :
+\begin{enumerate}
+\item Integrated, Wire Antenna
+\item Interoperable with other ZigBee-compliant devices
+\item Programmable versions with onboard microprocessor enable custom ZigBee application development
+\item Supports binding and multicasting for easy integration into a home automation platform
+\item Through-hole form factor enables flexible design
+\item 15 general-purpose I/O lines
+\item Industry-leading sleep current of sub 1 µA
+\item Firmware upgrades via UART, SPI, or over the air
+\end{enumerate}
+\begin{figure}
+\centering
+\includegraphics[scale=0.4]{xb}
+\caption{Zigbee}
+\label{circuit}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.6]{xb1}
+\caption{Zigbee Architecture}
+\label{circuit}
+\end{figure}
+\newpage
+\subsection{Arduino Nano}
+\hspace*{1cm}The Arduino Nano is a small, complete, and breadboard-friendly board based on the ATmega328 (Arduino Nano 3.x) or ATmega168 (Arduino Nano 2.x). It has more or less the same functionality of the Arduino Duemilanove, but in a different package.
+
+It lacks only a DC power jack, and works with a Mini-B USB cable instead of a standard one.The Arduino Nano can be powered via the Mini-B USB connection, 6-20V unregulated external power supply (pin 30), or 5V regulated external power supply (pin 27). The power source is automatically selected to the highest voltage source.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.2]{ard}
+\caption{Nano Arduino}
+\label{circuit}
+\end{figure}
+
+\subsection{Joystick}
+
+
+\hspace*{1cm} Thumb Joystick is a Grove compatible module which is very similar to the 'analog' joystick on PS2 (PlayStation 2) controllers. The X and Y axes are two ~10k potentiometers which control 2D movement by generating analog signals. The joystick also has a push button that could be used for special applications. When the module is in working mode, it will output two analog values, representing two directions. Compared to a normal joystick, its output values are restricted to a smaller range (i.e. 200~800), only when being pressed that the X value will be set to 1023 and the MCU can detect the action of pressing.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.2]{joy}
+\caption{Joysick}
+\label{circuit}
+\end{figure}
+\newpage
+\subsection{DC motor}
+
+\hspace*{1cm} A DC motor is any of a class of rotary electrical machines that converts direct current electrical energy into mechanical energy. The most common types rely on the forces produced by magnetic fields. Nearly all types of DC motors have some internal mechanism, either electromechanical or electronic, to periodically change the direction of current flow in part of the motor.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.6]{moto}
+\caption{DC motor}
+\label{circuit}
+\end{figure}
+\newpage
+
+\subsection{Motor Driver}
+
+\hspace*{1cm} L293D is a typical Motor driver or Motor Driver IC which allows DC motor to drive on either direction. L293D is a 16-pin IC which can control a set of two DC motors simultaneously in any direction.\\\\
+\hspace*{1cm}It works on the concept of H-bridge. H-bridge is a circuit which allows the voltage to be flown in either direction. As you know voltage need to change its direction for being able to rotate the motor in clockwise or anticlockwise direction, Hence H-bridge IC are ideal for driving a DC motor.In a single L293D chip there are two h-Bridge circuit inside the IC which can rotate two dc motor independently. Due its size it is very much used in robotic application for controlling DC motors.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.4]{drive1}
+\caption{L293D Motor Driver}
+\label{circuit}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.4]{drive2}
+\caption{Pin Diagram of L293D Motor Driver}
+\label{circuit}
+\end{figure}
+
+
+\subsection{CCTV Camera Module}
+\hspace*{1cm} Closed-circuit television (CCTV), also known as video surveillance,[1][2] is the use of video cameras to transmit a signal to a specific place, on a limited set of monitors. It differs from broadcast television in that the signal is not openly transmitted, though it may employ point to point (P2P), point to multipoint (P2MP), or mesh wired or wireless links. Though almost all video cameras fit this definition, the term is most often applied to those used for surveillance in areas that may need monitoring such as banks, stores, and other areas where security is needed. Though Videotelephony is seldom called 'CCTV' one exception is the use of video in distance education, where it is an important tool.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.4]{cam}
+\caption{Camera module}
+\label{circuit}
+\end{figure}
+
+\section{SOFTWARE}
+
+\begin{enumerate}
+\item Eagle
+
+\item Altium
+\item Mikroc
+\item arduino
+\item Xctu
+\end{enumerate}
+\subsection{Eagle}
+  \hspace*{1cm} EAGLE is a scriptable electronic design automation (EDA) application with schematic capture, printed circuit board (PCB) layout, auto-router and computer-aided manufacturing (CAM) features.EAGLE contains a schematic editor, for designing circuit diagrams. Schematics are stored in files with .SCH extension, parts are defined in device libraries with .LBR extension. Parts can be placed on many sheets and connected together through ports.The PCB layout editor stores board files with the extension .BRD. It allows back-annotation to the schematic and auto-routing to automatically connect traces based on the connections defined in the schematic.EAGLE saves Gerber and PostScript layout files as well as Excellon and Sieb and Meyer drill files. These are standard file formats accepted by PCB fabrication companies, but given EAGLE's typical user base of small design firms and hobbyists, many PCB fabricators and assembly shops also accept EAGLE board files (with extension .BRD) directly to export optimized production files and pick-and-place data themselves.EAGLE provides a multi-window graphical user interface and menu system for editing, project management and to customize the interface and design parameters. The system can be controlled via mouse, keyboard hotkeys or by entering specific commands at an embedded command line. Multiple repeating commands can be combined into script files (with file extension .SCR). It is also possible to explore design files utilizing an EAGLE-specific object-oriented programming language (with extension .ULP).
+\subsection{Altium}
+ \hspace*{1cm}  Altium Designer is a PCB and electronic design automation software package for printed circuit boards. It is developed by Australian software company Altium Limited.Altium Designer's suite encompasses four main functional areas: schematic capture,[4] 3D PCB design,[5] Field-programmable gate array (FPGA) development[6] and release/data management.
+\begin{enumerate}
+\item    Integration with several component distributors allows search for components and access to manufacturer's data
+\item Interactive 3D editing of the board and MCAD export to STEP.
+\item Cloud publishing of design and manufacturing data.
+\item Simulation and debugging of the FPGA can be achieved using the VHDL language and checking that for a given a set of input signals the expected output signals would be generated. FPGA soft processor software development tools (compiler, debugger, profiler) are available for selected embedded processors within an FPGA.
+
+\end{enumerate}
+\subsection{mikroc}
+ \hspace*{1cm}
+The mikroC PRO for PIC is a powerful, feature-rich development tool for PIC microcontrollers. It is designed to provide the programmer with the easiest possible solution to developing applications for embedded systems, without compromising performance or control.PIC and C fit together well: PIC is the most popular 8-bit chip in the world, used in a wide variety of applications, and C, prized for its efficiency, is the natural choice for developing embedded systems. mikroC PRO for PIC provides a successful match featuring highly advanced IDE, ANSI compliant compiler, broad set of hardware libraries, comprehensive documentation, and plenty of ready-to-run examples.
+\begin{enumerate}
+\item Write your C source code using the built-in Code Editor (Code and Parameter Assistants, Code Folding, Syntax Highlighting, Auto Correct, Code Templates, and more.)
+\item Use included mikroC PRO for PIC libraries to dramatically speed up the development: data acquisition, memory, displays, conversions, communication etc.
+\item Monitor your program structure, variables, and functions in the Code Explorer.
+\item Generate commented, human-readable assembly, and standard HEX compatible with all programmers.
+\item Use the integrated mikroICD (In-Circuit Debugger) Real-Time debugging tool to monitor program execution on the hardware level.
+\item Inspect program flow and debug executable logic with the integrated Software Simulator.
+\item Generate COFF(Common Object File Format) file for software and hardware debugging under Microchip's MPLAB software.
+\item Active Comments enable you to make your comments alive and interactive.
+\item Get detailed reports and graphs: RAM and ROM map, code statistics, assembly listing, calling tree, and more.
+\item mikroC PRO for PIC provides plenty of examples to expand, develop, and use as building bricks in your projects. Copy them entirely if you deem fit – that’s why we included them with the compiler.
+\end{enumerate}
+\subsection{arduino}
+\hspace*{1cm} Arduino programs are written in the Arduino Integrated Development Environment (IDE). Arduino IDE is a special software running on your system that allows you to write sketches (synonym for program in Arduino language) for different Arduino boards. The Arduino programming language is based on a very simple hardware programming language called processing, which is similar to the C language. After the sketch is written in the Arduino IDE, it should be uploaded on the Arduino board for execution.The first step in programming the Arduino board is downloading and installing the Arduino IDE. The open source Arduino IDE runs on Windows, Mac OS X, and Linux. Download the Arduino software (depending on your OS) from the official website and follow the instructions to install.
+\subsection{Xctu}
+\hspace*{1cm}XCTU is a free multi-platform application designed to enable developers to interact with Digi RF modules through a simple-to-use graphical interface. It includes new tools that make it easy to set-up, configure and test XBee® RF modules.XCTU includes all of the tools a developer needs to quickly get up and running with XBee. Unique features like graphical network view, which graphically represents the XBee network along with the signal strength of each connection, and the XBee API frame builder, which intuitively helps to build and interpret API frames for XBees being used in API mode, combine to make development on the XBee platform easier than ever.
+\chapter{PROGRAM ALGORITHM}
+\section{Mikroc}
+\begin{lstlisting}
+unsigned char uart_rd,uart_wr,output;
+ sbit mtr1 at RD0_bit;
+ sbit mtr1_dir at TRISD0_bit;
+ sbit mtr2 at RD1_bit;
+ sbit mtr2_dir at TRISD1_bit;
+ sbit mtr3 at RD2_bit;
+ sbit mtr3_dir at TRISD2_bit;
+ sbit mtr4 at RD3_bit;
+ sbit mtr4_dir at TRISD3_bit;
+
+ sbit relay at RB0_bit;
+void main()
+{
+TRISB  = 0;                 //PORTB is output
+     PORTB=0;
+     mtr1_dir=0;
+     mtr2_dir=0;
+     mtr3_dir=0;
+     mtr4_dir=0;
+      UART1_Init(9600);               // Initialize UART module at 9600 bps
+  Delay_ms(100);
+     while(1)
+      {
+         if (UART1_Data_Ready())
+    {     // If data is received,
+      uart_rd = UART1_Read();     // read the received data,
+     // UART1_Write(uart_rd);       // and send data via UART
+    }
+    if(uart_rd=='k')
+    {
+         mtr1=1;
+         mtr2=0;
+         mtr3=1;
+         mtr4=0;
+         Delay_ms(500);
+    }
+    else if(uart_rd=='m')
+    {
+
+         mtr1=0;
+         mtr2=1;
+         mtr3=0;
+         mtr4=1;
+         Delay_ms(500);
+    }
+       else if(uart_rd=='a')
+    {
+
+          relay=1;
+     Delay_ms(1000);
+         relay=0;
+         Delay_ms(1000);
+    }
+
+
+
+
+       }
+
+    /*while(1)
+      {
+         mtr1=0;
+         mtr2=1;
+         mtr3=0;
+         mtr4=1;
+         Delay_ms(500);
+         mtr1=1;
+         mtr2=0;
+         mtr3=1;
+         mtr4=0;
+         Delay_ms(500);
+       }*/
+
+}
+
+
+\end{lstlisting}
+\section{Arduino Program}
+\begin{lstlisting}
+#include <SoftwareSerial.h>
+SoftwareSerial mySerial(5,4);  //software serial instance for GPS/GSM module
+
+int x=A0;              // connects to analoge pin A0
+int y=A1;           // connects to analoge pin A1
+const int SW = 2;
+
+
+void setup(void)
+{
+  pinMode(SW,INPUT);
+  Serial.begin(9600);
+   mySerial.begin(9600);
+  }
+
+void loop(void)
+{
+ int ax=analogRead(x);
+ int ay=analogRead(y);
+ int s=digitalRead(SW);
+ //Serial.print(s); 
+ delay(100);
+  int a =  map (ax, 0, 1023, 0, 180);
+  int b =  map (ay, 0, 1023, 0, 180);
+  delay(100);
+  if(b>150&&a<100&&a>80)
+  {
+    Serial.println("1");//fwd
+    mySerial.println("1");//fwd
+    delay(1000);
+  }
+  if(b<20&&a<100&&a>80)
+  {
+    mySerial.println("2");//bwd
+    Serial.println("2");//bwd
+    delay(1000);
+  }
+  if(a>150&&b<100&&b>80)
+  {
+    mySerial.println("3");//left
+    Serial.println("3");//left
+    delay(1000);
+  }
+  if(a<20&&b<100&&b>80)
+  {
+    mySerial.println("4");//right
+    Serial.println("4");//right
+    delay(1000);
+  }
+  
+   if (s== HIGH)//relay
+   {
+    mySerial.println("5");
+    Serial.println("5");
+    delay(1000);
+   }
+   else
+   {
+     mySerial.println("6");//stop
+//     Serial.println("6");//stop
+     delay(1000);
+    }
+
+}
+
+\end{lstlisting}
+\chapter{{HARDWARE IMPLEMENTATION AND RESULTS}}
+\section{Final Product}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.1]{pro1}
+\caption{Prototype of Robot}
+\label{circuit}
+\end{figure}
+
+\hspace*{1cm}The final prototype model shown in figure.We have made a robotic vehicle and remote control.The structure is capable of carrying a weight of about .5Kg.A micro wireless camera module is mounted on the structure.By adjusting the tilt angle of the camera we can adjust what the camera actually capture.The vehicle is controled using a joystic when joystick pushes forward,the vehicle moves forward.When joystick pushes back vehicle moves reverse and when it pushes to left and right directions,vehicle moves accordingly.The remote can be controlled at a distance of around 10 meters from the vehicle.A pump driven by a relay is been used for water pumping mechanism to extinquish fire.The robot is tested both indoor and outdoor.  
+\newpage
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.2]{pro2}
+\caption{Prototype of Remote}
+\label{circuit}
+\end{figure}
+
+
+
+
+
+
+
+
+\newpage
+
+
+
+\chapter{{CONCLUSIONS}}
+
+
+\hspace*{1cm} Since this robot is built as a prototype it has various limitations. More research should do to improve the current robot.Our prototype model is not meant to detect fire instead it only extinquishes fire on detection.The main advantage of using Zigbee is that it is low power consuming and more reliable.Zigbee is prefered in short range applications with low data rates.One major limitation of our proposed model is that it can work only on flat surfaces,it couldn't be able to operate on rough or steep surfaces.The system can be made as a fully automated model by adding a vision based algorithm in future.
+
+\begin{thebibliography}{99}
+
+ \bibitem{}  Kaushik Ahmed, " Fire safety in Bangladesh and raising concerns," Mohammadi News Agency, May 5, 2016. [Online].      Available: http://mna.com.bd/press/en/fire-safety-in-bangladesh-and-raisingconcerns/. [Accessed: July 18, 2016]. 
+ \bibitem{}  Boo Siew Khoo et. al., " FireDroid - An automated fire extinguishing robot," in Proc. of International Conference on Control System, Computing and Engineering (ICCSCE-2013), Nov. 29 2013-Dec. 1 2013, Mindeb. 
+  \bibitem{} Madhavi Pednekar et. al., " Voice operated intelligent fire extinguishing vehicle," in Proc. of International Conference on Technologies for Sustainable Development (ICTSD-2015) , 4-6 Feb. 2015, Mumbai, India. 
+  \bibitem{}  Ahmed Hassaneinet. al., " An autonomous firefighting robot," in Proc. of International Conference on Advanced Robotics (ICAR-2015), 27-31 July 2015, Istanbul, Turkey. 
+   
+\end{thebibliography}
+
+
+
+\end{document}
+
